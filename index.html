@@ -3,360 +3,522 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Ruru ❤️</title>
-  <!-- Google Luxury Fonts -->
+  <title>Happy Birthday My Love ❤️</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: radial-gradient(circle, rgba(255, 230, 240, 0.45), rgba(240, 195, 215, 0.7)), 
-                  url('https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: #ffeef2;
       overflow-x: hidden;
-      padding: 30px 15px;
+      color: #333;
     }
 
-    /* Floating Celebration Emojis */
-    .emoji-fall {
+    /* Floating Background Particles */
+    #particles {
       position: fixed;
-      top: -60px;
-      user-select: none;
-      pointer-events: none;
-      z-index: 99999;
-      animation: fall linear forwards;
-    }
-    @keyframes fall {
-      to {
-        transform: translateY(115vh) rotate(540deg);
-      }
-    }
-
-    /* Main Container */
-    .scene {
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 620px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      perspective: 1600px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    /* Envelope Body */
-    .envelope-box {
-      position: relative;
-      width: 480px;
-      max-width: 95vw;
-      height: 310px;
-      background: #fbf5eb;
-      border-radius: 12px;
-      box-shadow: 0 25px 60px rgba(70, 30, 50, 0.28), 0 5px 15px rgba(0, 0, 0, 0.08);
-      cursor: pointer;
+    .particle {
+      position: absolute;
+      font-size: 20px;
+      user-select: none;
+      animation: floatParticle 6s ease-in-out infinite;
+    }
+
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+      50% { transform: translateY(-35px) rotate(20deg); opacity: 1; }
+    }
+
+    /* Section 1: Hero Section */
+    .hero {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border: 1px solid #ebd9c2;
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-      z-index: 10;
-    }
-
-    .envelope-box:hover {
-      transform: translateY(-6px) scale(1.015);
-      box-shadow: 0 30px 75px rgba(70, 30, 50, 0.35);
-    }
-
-    /* Envelope Creases */
-    .envelope-crease-left {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-bottom: 310px solid rgba(240, 228, 212, 0.55);
-      border-right: 240px solid transparent;
-      z-index: 3;
-    }
-    .envelope-crease-right {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-bottom: 310px solid rgba(243, 232, 218, 0.65);
-      border-left: 240px solid transparent;
-      z-index: 3;
-    }
-
-    /* Typography on Front */
-    .front-text-wrap {
-      position: relative;
-      z-index: 8;
       text-align: center;
-      padding: 0 20px;
-      margin-top: -30px;
+      background: linear-gradient(135deg, #ffd1dc 0%, #ffe6eb 50%, #ffccd5 100%);
+      padding: 30px 20px;
+      position: relative;
+      z-index: 2;
     }
 
-    .invitation-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 58px;
-      color: #2e2622;
-      font-weight: 500;
-      letter-spacing: 1px;
-      line-height: 1.1;
-      margin-bottom: 12px;
+    .hero-content {
+      max-width: 800px;
     }
 
-    .tap-hint {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 21px;
-      color: #554a43;
-      letter-spacing: 1.5px;
-      font-style: italic;
+    .typewriter-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      color: #d81b60;
+      min-height: 70px;
+      margin-bottom: 15px;
+      font-weight: 700;
     }
 
-    /* Golden Wax Seal Stamp */
-    .wax-seal {
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      background-color: #d81b60;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: #6a4c59;
+      margin-bottom: 25px;
+      font-weight: 400;
+    }
+
+    .floating-hearts {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 35px;
+      font-size: 1.8rem;
+    }
+
+    .heart-bounce {
+      animation: bounce 1.8s infinite ease-in-out;
+    }
+    .heart-bounce:nth-child(2) { animation-delay: 0.2s; }
+    .heart-bounce:nth-child(3) { animation-delay: 0.4s; }
+    .heart-bounce:nth-child(4) { animation-delay: 0.6s; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
+    }
+
+    .cta-button {
+      background: linear-gradient(45deg, #ff4081, #ff79b0);
+      color: white;
+      border: none;
+      padding: 14px 34px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255, 64, 129, 0.35);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 14px 30px rgba(255, 64, 129, 0.45);
+    }
+
+    .scroll-arrow {
+      margin-top: 45px;
+      font-size: 1.6rem;
+      color: #d81b60;
+      animation: arrowFloat 2s infinite ease-in-out;
+    }
+
+    @keyframes arrowFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(12px); }
+    }
+
+    /* Section 2: Photo Gallery */
+    .gallery-section {
+      padding: 90px 20px;
+      background: linear-gradient(180deg, #ffccd5 0%, #ffeef2 100%);
+      position: relative;
+      z-index: 2;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.3rem, 5vw, 3.4rem);
+      color: #c2185b;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 28px;
+    }
+
+    .photo-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(216, 27, 96, 0.2);
+    }
+
+    .photo-container {
+      position: relative;
+      height: 330px;
+      overflow: hidden;
+    }
+
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .photo-card:hover .photo-container img {
+      transform: scale(1.08);
+    }
+
+    .photo-overlay {
       position: absolute;
-      bottom: 22px;
-      width: 65px;
-      height: 65px;
-      background: radial-gradient(circle at 35% 35%, #ffd768, #c99324 70%, #855806 100%);
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 18px 20px;
+    }
+
+    .photo-caption {
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .like-btn {
+      background: rgba(255, 255, 255, 0.85);
+      border: none;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      box-shadow: 0 6px 16px rgba(90, 55, 10, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+      cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #543702;
-      font-size: 26px;
-      border: 2px solid #e5b338;
-      z-index: 9;
-      animation: gentle-glow 2.5s infinite ease-in-out;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
     }
 
-    @keyframes gentle-glow {
-      0%, 100% { box-shadow: 0 6px 16px rgba(90, 55, 10, 0.4); transform: scale(1); }
-      50% { box-shadow: 0 10px 25px rgba(212, 160, 23, 0.65); transform: scale(1.05); }
+    .like-btn:hover {
+      transform: scale(1.2);
     }
 
-    /* The Unfolded Paper Letter */
-    .luxury-letter {
-      display: none;
+    .like-btn.liked {
+      background: #ff4081;
+    }
+
+    /* Section 3: Birthday Message */
+    .message-section {
+      padding: 90px 20px;
+      background: linear-gradient(135deg, #4a154b 0%, #2b0836 100%);
+      color: white;
       position: relative;
-      width: 100%;
-      max-width: 620px;
-      background: #fffdfa;
-      border-radius: 16px;
-      padding: 40px 30px;
-      border: 1px solid #ebd9c2;
-      box-shadow: 0 25px 60px rgba(50, 15, 30, 0.25), inset 0 0 40px rgba(246, 233, 215, 0.5);
-      z-index: 20;
-      opacity: 0;
-      transform: translateY(40px) scale(0.92);
-      transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: 2;
     }
 
-    .luxury-letter.show {
-      display: block;
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .letter-inner-border {
-      border: 1.5px solid #d4af37;
-      padding: 28px 22px;
-      border-radius: 10px;
-      position: relative;
-    }
-
-    .letter-inner-border::before,
-    .letter-inner-border::after {
-      content: "✦";
-      position: absolute;
-      color: #d4af37;
-      font-size: 16px;
-    }
-    .letter-inner-border::before { top: 6px; left: 8px; }
-    .letter-inner-border::after { bottom: 6px; right: 8px; }
-
-    .letter-header {
+    .message-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      padding: 50px 35px;
+      max-width: 850px;
+      margin: 0 auto;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
       text-align: center;
+    }
+
+    .message-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      color: #ff80ab;
+      margin-bottom: 30px;
+    }
+
+    .message-text {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: #f8bbd0;
       margin-bottom: 22px;
-    }
-
-    .letter-header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 46px;
-      color: #8c1d40;
-      font-weight: 500;
-      line-height: 1.2;
-    }
-
-    .letter-header .tagline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      color: #846849;
-      font-style: italic;
-      letter-spacing: 1px;
-      margin-top: 5px;
-    }
-
-    .letter-body p {
-      font-family: 'Playfair Display', serif;
-      color: #382e2b;
-      font-size: 15px;
-      line-height: 1.95;
-      margin-bottom: 18px;
       text-align: justify;
     }
 
-    .letter-signature {
+    .message-signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #ffd54f;
+      margin-top: 35px;
       text-align: right;
+    }
+
+    .message-hearts {
       margin-top: 25px;
-      padding-top: 15px;
-      border-top: 1px dashed rgba(212, 175, 55, 0.4);
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
     }
 
-    .letter-signature .closing-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 19px;
-      font-style: italic;
-      color: #634b35;
+    /* Audio Pill */
+    .audio-pill {
+      margin-top: 30px;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #fce4ec;
     }
 
-    .letter-signature .husband-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #8c1d40;
-      margin-top: 5px;
+    /* Bursting Floating Heart when Liked */
+    .floating-burst-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      font-size: 24px;
+      animation: heartBurst 1.2s ease-out forwards;
     }
 
-    .audio-player-tag {
-      text-align: center;
-      margin-top: 20px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 15px;
-      font-style: italic;
-      color: #8c7255;
+    @keyframes heartBurst {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100px) scale(1.6); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Soft Romantic Piano & Strings Instrumental (Direct High-Speed CDN) -->
-  <audio id="bgMusic" loop preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_c97a55225d.mp3?filename=romantic-piano-112199.mp3" type="audio/mpeg">
-    <source src="https://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/music/win.ogg" type="audio/ogg">
-  </audio>
+  <!-- Floating Particles Background -->
+  <div id="particles"></div>
 
-  <div class="scene">
-    <!-- Clickable Vintage Envelope -->
-    <div class="envelope-box" id="envelopeBox" onclick="openEnvelopeLetter()">
-      <div class="envelope-crease-left"></div>
-      <div class="envelope-crease-right"></div>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="typewriter-title"><span id="typewriter"></span><span class="cursor">&nbsp;</span></h1>
+      <p class="hero-subtitle">Today is all about celebrating you and the joy you bring to my life ✨</p>
       
-      <div class="front-text-wrap">
-        <div class="invitation-title">Happy Birthday</div>
-        <div class="tap-hint">( Tap to open )</div>
+      <div class="floating-hearts">
+        <span class="heart-bounce">💖</span>
+        <span class="heart-bounce">🌸</span>
+        <span class="heart-bounce">👰‍♀️</span>
+        <span class="heart-bounce">💍</span>
       </div>
 
-      <div class="wax-seal">
-        💍
+      <button class="cta-button" onclick="startCelebration()">Start the Celebration 🎉</button>
+
+      <div class="scroll-arrow">
+        <div style="font-size: 13px; font-weight: 500; letter-spacing: 1px; margin-bottom: 4px;">SCROLL DOWN</div>
+        ↓
       </div>
     </div>
+  </section>
 
-    <!-- The Slide-out Royal Parchment Letter -->
-    <div class="luxury-letter" id="luxuryLetter">
-      <div class="letter-inner-border">
+  <!-- Photo Gallery Section -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <h2 class="section-title">Our Beautiful Memories 📸❤️</h2>
+
+      <div class="gallery-grid">
+        <!-- Photo 1 -->
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80" alt="Special moment">
+            <div class="photo-overlay">
+              <span class="photo-caption">Every moment with you is pure magic ✨</span>
+              <button class="like-btn" onclick="toggleLike(this, event)">❤️</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Beautiful smile">
+            <div class="photo-overlay">
+              <span class="photo-caption">Your smile lights up my whole world 🌸</span>
+              <button class="like-btn" onclick="toggleLike(this, event)">❤️</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="photo-card">
+          <div class="photo-container">
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Hands together">
+            <div class="photo-overlay">
+              <span class="photo-caption">Walking hand in hand forever 💍</span>
+              <button class="like-btn" onclick="toggleLike(this, event)">❤️</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Birthday Message Section -->
+  <section class="message-section" id="message">
+    <div class="container">
+      <div class="message-card">
+        <h2 class="message-title">A Special Message for You, Ruru 💌👑</h2>
         
-        <div class="letter-header">
-          <h1>My Dearest Ruru,</h1>
-          <div class="tagline">Happy Birthday to the Queen of My Heart 💖🎂👑</div>
+        <p class="message-text">
+          On this special day, my dearest Ruru, I pray from the bottom of my heart that Allah Pak blesses you with boundless joy, radiant health, long peaceful life, and success in every single dream you pursue. 🤲✨ May every tear ever shed be turned into a reason to smile, and may peace and tranquility surround you always. 🌸
+        </p>
+        
+        <p class="message-text">
+          Looking at you, I see my entire future, my home, and my greatest blessing. 💍🏡 I constantly imagine the beautiful days ahead when we will start our married life together insha'Allah—a life filled with quiet warmth, endless laughter, mutual respect, and unconditional love. You are not only my fiancé; you are my peace, my best friend, and my whole heart. 👩‍❤️‍👨🕊️
+        </p>
+
+        <p class="message-text">
+          Thank you for choosing to walk this beautiful journey of life with me. I promise to cherish you, stand by you through every storm and sunshine, and give you every happiness this world has to offer. May this birthday mark the start of our happiest and most magical chapters together! 🌟💖
+        </p>
+
+        <div class="message-signature">
+          With endless love & prayers,<br>
+          Your future husband 💍❤️👑
         </div>
 
-        <div class="letter-body">
-          <p>
-            🎉🌸 Meri pyari Ruru, aaj ke is sab se pyare aur khoobsurat din par main dil ki athah gehraiyon se dua karta hoon ke Allah Pak aapki zindagi ko dhero khushiyon, barkaton, behtareen sehat aur lambi umar se nawaze. 🤲✨ Meri dua hai ke aapki ankhon me hamesha khushi ki chamak rahe, aapka chehra hamesha muskurata rahe, aur zindagi ka har ek pal aapke liye sukoon aur kamiyabi ban kar aaye. Jo dua aap khamoshi se dil me mangein, Allah use apni rehmat se foran qubool farmae. 🌹💫
-          </p>
-          <p>
-            💍🏡 Ruru, aap sirf meri mangetar nahi, meri aane wali poori zindagi, meri pehchan aur mera naseeb ho. Main har roz us mubarak lamhe ke khwab sajata hoon jab hum hamesha ke liye ek dusre ke sath bandh jayenge aur apni nayi shadi-shuda zindagi ki shuruaat karenge. 👩‍❤️‍👨🕊️ Ek aisi khoobsurat zindagi jahan subah aapke chehre ke noor se ho aur har shaam hamare pyare ghar ki hansi aur apnapann me guzray. Main wada karta hoon ke hamara aashiyana sirf mohabbat, izzat, sukoon aur dher saare pyar se mehka rahega.
-          </p>
-          <p>
-            🕯️❤️ Zindagi ke har mod par, har khushi aur har dukh me, main aapki dhal ban kar aapke barabar khada rahunga. Aapke har ansoo ko muskurahat me badalna aur aapko duniya ki har nemat dilaana meri zindagi ka maqsad hoga. Meri kismat banne ke liye aur meri duniya ko itna roshan karne ke liye be-hisaab shukriya. Meri zindagi me aapki jagah koi nahi le sakta. 🌟💐
-          </p>
-          <p>
-            May this birthday be the beginning of our most magical, blessed, and happiest journey together! Once again, the happiest birthday to you, my forever love! 🥳🎈✨
-          </p>
+        <div class="message-hearts">
+          <span class="heart-bounce">💖</span>
+          <span class="heart-bounce">🎂</span>
+          <span class="heart-bounce">💐</span>
+          <span class="heart-bounce">🌹</span>
         </div>
 
-        <div class="letter-signature">
-          <div class="closing-text">Always and forever, with all my soul,</div>
-          <div class="husband-title">Your future husband 💍❤️👑</div>
+        <div class="audio-pill">
+          🎵 Soft Romantic Birthday Serenade Playing...
         </div>
-
-        <div class="audio-player-tag">
-          🎵 Playing: Soft Romantic Piano Melody...
-        </div>
-
       </div>
     </div>
-  </div>
+  </section>
 
   <script>
-    function openEnvelopeLetter() {
-      const envelope = document.getElementById('envelopeBox');
-      const letter = document.getElementById('luxuryLetter');
-      const music = document.getElementById('bgMusic');
-
-      // Play soft romantic audio smoothly
-      if (music) {
-        music.volume = 0.7;
-        music.play().catch(function(e) {
-          console.log("Audio waiting for user gesture:", e);
-        });
+    // 1. Floating Background Particles
+    function initParticles() {
+      const container = document.getElementById('particles');
+      const symbols = ['💖', '🌸', '✨', '🦋', '🎈', '🤍', '🌹'];
+      for (let i = 0; i < 35; i++) {
+        const item = document.createElement('div');
+        item.classList.add('particle');
+        item.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        item.style.left = Math.random() * 100 + 'vw';
+        item.style.top = Math.random() * 100 + 'vh';
+        item.style.animationDelay = (Math.random() * 5) + 's';
+        item.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        container.appendChild(item);
       }
+    }
 
-      // Smooth Envelope Unseal & Reveal Animation
-      envelope.style.transform = 'scale(0.85) translateY(-25px)';
-      envelope.style.opacity = '0';
-      envelope.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    // 2. Typewriter Effect
+    const fullText = "Happy Birthday, Beautiful Ruru! ❤️";
+    let index = 0;
+    function typeEffect() {
+      if (index < fullText.length) {
+        document.getElementById('typewriter').innerText += fullText.charAt(index);
+        index++;
+        setTimeout(typeEffect, 110);
+      }
+    }
+
+    // 3. Realistic Soft Romantic Chords (Browser Native - Zero CORS blockage)
+    function playRomanticSound() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        const ctx = new AudioCtx();
+        const progression = [
+          [261.63, 329.63, 392.00], // C
+          [220.00, 261.63, 329.63], // Am
+          [174.61, 220.00, 261.63], // F
+          [196.00, 246.94, 293.66]  // G
+        ];
+
+        let time = ctx.currentTime + 0.1;
+        for (let round = 0; round < 8; round++) {
+          progression.forEach(chord => {
+            chord.forEach(freq => {
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(freq, time);
+
+              gain.gain.setValueAtTime(0, time);
+              gain.gain.linearRampToValueAtTime(0.06, time + 0.3);
+              gain.gain.exponentialRampToValueAtTime(0.0001, time + 2.5);
+
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(time);
+              osc.stop(time + 2.6);
+            });
+            time += 0.9;
+          });
+        }
+      } catch (e) {}
+    }
+
+    // 4. Start Celebration Smooth Scroll + Audio
+    function startCelebration() {
+      playRomanticSound();
+      document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 5. Like Button Reaction
+    function toggleLike(btn, e) {
+      btn.classList.toggle('liked');
+
+      // Heart particle burst
+      const burst = document.createElement('div');
+      burst.classList.add('floating-burst-heart');
+      burst.innerText = '💖';
+      burst.style.left = e.clientX + 'px';
+      burst.style.top = e.clientY + 'px';
+      document.body.appendChild(burst);
 
       setTimeout(() => {
-        envelope.style.display = 'none';
-        letter.classList.add('show');
-        launchCelebrationEmojis();
-      }, 550);
+        burst.remove();
+      }, 1200);
     }
 
-    function launchCelebrationEmojis() {
-      const partyIcons = ['🌸', '✨', '🎂', '💖', '💍', '🎉', '🌹', '🕊️', '💐', '💌', '👑', '🕯️'];
-      
-      setInterval(() => {
-        const span = document.createElement('div');
-        span.classList.add('emoji-fall');
-        span.innerText = partyIcons[Math.floor(Math.random() * partyIcons.length)];
-        span.style.left = (Math.random() * 95) + 'vw';
-        span.style.animationDuration = (Math.random() * 2 + 2.8) + 's';
-        span.style.fontSize = (Math.random() * 16 + 22) + 'px';
-        document.body.appendChild(span);
-
-        setTimeout(() => {
-          span.remove();
-        }, 5000);
-      }, 130);
-    }
+    window.addEventListener('DOMContentLoaded', () => {
+      initParticles();
+      setTimeout(typeEffect, 400);
+    });
   </script>
 </body>
 </html>
