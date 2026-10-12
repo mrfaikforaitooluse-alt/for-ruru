@@ -3,177 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Special Surprise for Ruru ❤️</title>
+  <title>A Special Royal Invitation For Ruru 💖</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
-      background: radial-gradient(circle, #ffe6eb 0%, #ffb6c1 100%);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1f0427 0%, #4a0e4e 50%, #2b0836 100%);
+      font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow-x: hidden;
       padding: 20px 10px;
+      perspective: 1200px;
     }
 
-    /* Screen par girne wali emojis */
+    /* Falling Emojis */
     .emoji-fall {
       position: fixed;
       top: -50px;
-      font-size: 24px;
       user-select: none;
       pointer-events: none;
-      z-index: 9999;
+      z-index: 99999;
       animation: fall linear forwards;
     }
     @keyframes fall {
       to {
-        transform: translateY(110vh) rotate(360deg);
+        transform: translateY(115vh) rotate(720deg);
       }
     }
 
-    /* Envelope Screen */
-    #envelope-wrapper {
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    #envelope-wrapper:hover {
-      transform: scale(1.05);
-    }
-    .envelope-box {
-      width: 280px;
-      height: 180px;
-      background: #ff4d6d;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      box-shadow: 0 15px 35px rgba(255, 77, 109, 0.4);
-      border: 2px dashed #ffe5ec;
-      padding: 15px;
-    }
-    .envelope-icon {
-      font-size: 50px;
-      margin-bottom: 10px;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-    }
-    .open-prompt {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    /* Letter / Invitation Card */
-    #letter-card {
-      display: none;
-      background: #ffffff;
-      max-width: 550px;
+    /* 3D Folding Invitation Card Container */
+    .card-container {
+      position: relative;
       width: 100%;
-      border-radius: 20px;
-      padding: 30px 25px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-      border: 1px solid #ffd1dc;
-      animation: popUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    }
-    @keyframes popUp {
-      from {
-        opacity: 0;
-        transform: scale(0.6) translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
+      max-width: 580px;
+      perspective: 1500px;
+      transition: all 0.5s ease;
     }
 
-    h1 {
-      color: #ff3366;
-      font-size: 24px;
+    /* Front Cover (Gatefold / Cover flap) */
+    .front-cover {
+      background: linear-gradient(145deg, #d81b60, #880e4f);
+      border: 3px solid #ffd700;
+      border-radius: 20px;
+      padding: 50px 25px;
       text-align: center;
-      margin-bottom: 20px;
-      line-height: 1.4;
+      color: #fff;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(216, 27, 96, 0.5);
+      cursor: pointer;
+      transform-origin: top;
+      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+      position: relative;
+      z-index: 10;
     }
-    .content p {
-      color: #444;
+
+    .cover-ribbon {
+      font-size: 70px;
+      margin-bottom: 15px;
+      animation: bounce 2s infinite ease-in-out;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .cover-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #ffe082;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .cover-subtitle {
       font-size: 15px;
-      line-height: 1.8;
-      text-align: justify;
-      margin-bottom: 16px;
+      color: #fce4ec;
+      margin-bottom: 25px;
     }
-    .signature {
+
+    .open-btn {
+      background: linear-gradient(45deg, #ffd700, #ffb300);
+      color: #4a0e4e;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .open-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
+    }
+
+    /* Inside Card (Hidden initially) */
+    .inner-card {
+      display: none;
+      background: linear-gradient(to bottom, #ffffff, #fffafc);
+      border: 3px solid #ffccd5;
+      border-radius: 20px;
+      padding: 35px 28px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+      position: relative;
+      transform: scale(0.8);
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .inner-card.revealed {
+      display: block;
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .card-heading {
+      text-align: center;
+      color: #c2185b;
+      font-size: 25px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border-bottom: 2px dashed #ff80ab;
+      padding-bottom: 12px;
+    }
+
+    .card-body p {
+      color: #37474f;
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+
+    .closing-sign {
       text-align: right;
       margin-top: 25px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #ff3366;
-      line-height: 1.5;
+      font-size: 17px;
+      font-weight: 700;
+      color: #ad1457;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
-  <!-- Envelope Button Screen -->
-  <div id="envelope-wrapper" onclick="openSurprise()">
-    <div class="envelope-box">
-      <div class="envelope-icon">💌</div>
-      <div class="open-prompt">For Ruru ✨<br><small style="font-size: 12px; font-weight: normal;">Tap to open your letter</small></div>
+  <div class="card-container">
+    <!-- Outer Invitation Flap -->
+    <div class="front-cover" id="cover" onclick="openInvitation()">
+      <div class="cover-ribbon">🎁✨</div>
+      <div class="cover-title">Exclusive Birthday Invitation</div>
+      <div class="cover-subtitle">Specially Sealed for My Queen Ruru 👑💍</div>
+      <button class="open-btn">Click To Unseal & Open 💌</button>
     </div>
-  </div>
 
-  <!-- Hidden Wish Card -->
-  <div id="letter-card">
-    <h1>🎉 Happy Birthday, My Dearest Ruru! ❤️🎂</h1>
-    <div class="content">
-      <p>
-        On your special day, I pray from the deepest corner of my heart that Allah blesses you with endless happiness, perfect health, peace of mind, and immense success in everything you do. 🤲✨ May every tear be replaced with a beautiful smile, and may every dream you hold close to your heart come true this year. You truly deserve all the beauty and goodness this world has to offer. 🌸💫
-      </p>
-      <p>
-        Looking at you, I see my entire future. I can hardly express how excited and blessed I feel knowing that soon, insha'Allah, we will be stepping into our married life together. 💍🏡 I constantly imagine our days ahead—a home filled with warmth, endless laughter, peaceful mornings, and unconditional love. I pray that our upcoming marriage becomes a source of tranquility, strength, and joy for both of us, and that we build a bond so strong that no storm can ever shake it. 🕊️❤️
-      </p>
-      <p>
-        Thank you for choosing to walk this journey with me, for being my peace, and for making my life so incredibly meaningful. I promise to always stand by your side, protect your smile, and cherish you with all my heart through every phase of life. May this birthday mark the start of our most magical chapters yet. 🌟💐
-      </p>
-    </div>
-    <div class="signature">
-      Always and forever,<br>
-      Your future husband 💍❤️
+    <!-- Inside Card Message -->
+    <div class="inner-card" id="innerCard">
+      <div class="card-heading">
+        👑 Happy Birthday To My Everything, Ruru! 🎂💖✨
+      </div>
+      <div class="card-body">
+        <p>
+          🎉🌸 Aaj ke is behtareen din par, main dil ki gehraiyon se dua karta hoon ke Allah Pak aapki zindagi ko dhero khushiyon, barkaton, achi sehat aur kamiyabiyon se bhar de. 🤲✨ Aapki zindagi me kabhi koi gham na aaye, har aane wala din aapke chehre par nayi muskurahat laye, aur aapka har khwab poora ho. 🌹💫
+        </p>
+        <p>
+          💍🏡 Meri pyari Ruru, aap meri aane wali zindagi ka sab se khoobsurat hissa ho. Main har pal us din ke khwab dekhta hoon jab hum hamesha ke liye ek doosre ke ho jayenge aur apni nayi shadi shuda zindagi ka aaghaz karenge. 👩‍❤️‍👨🕊️ Ek aisi zindagi jahan sirf pyar, sukoon, apnapan aur bepanah mohabbat ho. Main wada karta hoon ke hamara ghar hamesha hansi, izzat aur pyar se mehka rahega. 🕯️❤️
+        </p>
+        <p>
+          💐💖 Shukriya meri kismat banne ke liye aur meri zindagi me itna noor bharne ke liye. Main har mod par aapka hath pakad kar khada rahunga aur aapko duniya ki saari khushiyan doonga, insha'Allah. Happy Birthday once again my love! 🥳🎈✨
+        </p>
+      </div>
+      <div class="closing-sign">
+        With endless love & prayers, 🌹<br>
+        <strong>Your future husband</strong> 💍❤️👑
+      </div>
     </div>
   </div>
 
   <script>
-    function openSurprise() {
-      // Hide envelope, show card
-      document.getElementById('envelope-wrapper').style.display = 'none';
-      const card = document.getElementById('letter-card');
-      card.style.display = 'block';
+    function openInvitation() {
+      const cover = document.getElementById('cover');
+      const innerCard = document.getElementById('innerCard');
 
-      // Start emoji rain
-      const emojis = ['🎂', '🎉', '💖', '✨', '🎈', '🌸', '💍', '💐'];
+      // Card opening animation
+      cover.style.transform = 'rotateX(90deg)';
+      cover.style.opacity = '0';
+
+      setTimeout(() => {
+        cover.style.display = 'none';
+        innerCard.classList.add('revealed');
+        triggerEmojiShower();
+      }, 500);
+    }
+
+    function triggerEmojiShower() {
+      const emojis = ['🎂', '🎉', '💖', '✨', '🎈', '🌸', '💍', '💐', '👑', '🥳', '💌', '🌹', '❤️'];
+      
+      // Heavy emoji rain
       setInterval(() => {
-        const item = document.createElement('div');
-        item.classList.add('emoji-fall');
-        item.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        item.style.left = Math.random() * 100 + 'vw';
-        item.style.animationDuration = (Math.random() * 2 + 3) + 's';
-        item.style.fontSize = (Math.random() * 14 + 18) + 'px';
-        document.body.appendChild(item);
+        const drop = document.createElement('div');
+        drop.classList.add('emoji-fall');
+        drop.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        drop.style.left = (Math.random() * 95) + 'vw';
+        drop.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
+        drop.style.fontSize = (Math.random() * 16 + 22) + 'px';
+        document.body.appendChild(drop);
 
         setTimeout(() => {
-          item.remove();
-        }, 5000);
-      }, 250);
+          drop.remove();
+        }, 4500);
+      }, 120);
     }
   </script>
 </body>
