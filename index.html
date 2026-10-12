@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Ruru ❤️</title>
-  <!-- Google Fonts: Great Vibes for Luxury Calligraphy & Cormorant Garamond for Vintage Look -->
+  <!-- Google Luxury Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
@@ -21,7 +21,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* Aesthetic Soft Floral Spring Bokeh Background */
       background: radial-gradient(circle, rgba(255, 230, 240, 0.45), rgba(240, 195, 215, 0.7)), 
                   url('https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
       font-family: 'Playfair Display', serif;
@@ -29,7 +28,7 @@
       padding: 30px 15px;
     }
 
-    /* Floating / Falling Celebration Emojis */
+    /* Floating Celebration Emojis */
     .emoji-fall {
       position: fixed;
       top: -60px;
@@ -44,7 +43,7 @@
       }
     }
 
-    /* Container */
+    /* Main Container */
     .scene {
       width: 100%;
       max-width: 580px;
@@ -54,7 +53,7 @@
       perspective: 1600px;
     }
 
-    /* Envelope Outer Body */
+    /* Envelope Body */
     .envelope-box {
       position: relative;
       width: 480px;
@@ -78,20 +77,7 @@
       box-shadow: 0 30px 75px rgba(70, 30, 50, 0.35);
     }
 
-    /* Envelope Top Flap */
-    .envelope-flap {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 5;
-      overflow: hidden;
-      border-radius: 12px;
-    }
-
-    /* Realistic Diagonal Creases */
+    /* Realistic Envelope Creases */
     .envelope-crease-left {
       position: absolute;
       bottom: 0;
@@ -128,7 +114,6 @@
       color: #2e2622;
       font-weight: 500;
       letter-spacing: 1px;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
       line-height: 1.1;
       margin-bottom: 12px;
     }
@@ -138,7 +123,6 @@
       font-size: 21px;
       color: #554a43;
       letter-spacing: 1.5px;
-      text-transform: none;
       font-style: italic;
     }
 
@@ -271,13 +255,14 @@
 </head>
 <body>
 
-  <!-- Romantic Violin Music Instrumental Track -->
+  <!-- Direct Public Domain Romantic Violin Audio (No CORS Blocking) -->
   <audio id="violinMusic" preload="auto">
-    <source src="https://assets.mixkit.co/music/preview/mixkit-serenade-of-the-heart-violin-479.mp3" type="audio/mpeg">
+    <source src="https://upload.wikimedia.org/wikipedia/commons/2/21/Schumann_Traumerei_Violin.ogg" type="audio/ogg">
+    <source src="https://ia800501.us.archive.org/11/items/classical_music_relaxing/Mendelssohn_Violin_Concerto.mp3" type="audio/mpeg">
   </audio>
 
   <div class="scene">
-    <!-- Clickable Vintage Envelope Flap -->
+    <!-- Clickable Vintage Envelope -->
     <div class="envelope-box" id="envelopeBox" onclick="openEnvelopeLetter()">
       <div class="envelope-crease-left"></div>
       <div class="envelope-crease-right"></div>
@@ -332,9 +317,12 @@
       const letter = document.getElementById('luxuryLetter');
       const music = document.getElementById('violinMusic');
 
-      // Music playback starts upon user tap
+      // Play audio on tap
       if (music) {
-        music.play().catch(err => console.log('Music play permitted after click:', err));
+        music.volume = 0.85;
+        music.play().catch(function(e) {
+          console.log("Audio play error:", e);
+        });
       }
 
       // Smooth Envelope Unseal & Reveal Animation
