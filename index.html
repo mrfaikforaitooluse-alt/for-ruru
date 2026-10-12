@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Special Royal Invitation For Ruru 💖</title>
+  <title>Happy Birthday Ruru ❤️</title>
+  <!-- Google Fonts: Great Vibes for Luxury Calligraphy & Cormorant Garamond for Vintage Look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  
   <style>
     * {
       box-sizing: border-box;
@@ -12,21 +17,22 @@
     }
 
     body {
-      background: linear-gradient(135deg, #1f0427 0%, #4a0e4e 50%, #2b0836 100%);
-      font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      /* Aesthetic Soft Floral Spring Bokeh Background */
+      background: radial-gradient(circle, rgba(255, 230, 240, 0.45), rgba(240, 195, 215, 0.7)), 
+                  url('https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+      font-family: 'Playfair Display', serif;
       overflow-x: hidden;
-      padding: 20px 10px;
-      perspective: 1200px;
+      padding: 30px 15px;
     }
 
-    /* Falling Emojis */
+    /* Floating / Falling Celebration Emojis */
     .emoji-fall {
       position: fixed;
-      top: -50px;
+      top: -60px;
       user-select: none;
       pointer-events: none;
       z-index: 99999;
@@ -34,192 +40,331 @@
     }
     @keyframes fall {
       to {
-        transform: translateY(115vh) rotate(720deg);
+        transform: translateY(115vh) rotate(540deg);
       }
     }
 
-    /* 3D Folding Invitation Card Container */
-    .card-container {
-      position: relative;
+    /* Container */
+    .scene {
       width: 100%;
       max-width: 580px;
-      perspective: 1500px;
-      transition: all 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1600px;
     }
 
-    /* Front Cover (Gatefold / Cover flap) */
-    .front-cover {
-      background: linear-gradient(145deg, #d81b60, #880e4f);
-      border: 3px solid #ffd700;
-      border-radius: 20px;
-      padding: 50px 25px;
-      text-align: center;
-      color: #fff;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(216, 27, 96, 0.5);
-      cursor: pointer;
-      transform-origin: top;
-      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+    /* Envelope Outer Body */
+    .envelope-box {
       position: relative;
+      width: 480px;
+      max-width: 95vw;
+      height: 310px;
+      background: #fbf5eb;
+      border-radius: 12px;
+      box-shadow: 0 25px 60px rgba(70, 30, 50, 0.28), 0 5px 15px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ebd9c2;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
       z-index: 10;
     }
 
-    .cover-ribbon {
-      font-size: 70px;
-      margin-bottom: 15px;
-      animation: bounce 2s infinite ease-in-out;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+    .envelope-box:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 30px 75px rgba(70, 30, 50, 0.35);
     }
 
-    .cover-title {
-      font-size: 26px;
-      font-weight: 700;
+    /* Envelope Top Flap */
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    /* Realistic Diagonal Creases */
+    .envelope-crease-left {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 310px solid rgba(240, 228, 212, 0.55);
+      border-right: 240px solid transparent;
+      z-index: 3;
+    }
+    .envelope-crease-right {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 310px solid rgba(243, 232, 218, 0.65);
+      border-left: 240px solid transparent;
+      z-index: 3;
+    }
+
+    /* Typography on Front */
+    .front-text-wrap {
+      position: relative;
+      z-index: 8;
+      text-align: center;
+      padding: 0 20px;
+      margin-top: -30px;
+    }
+
+    .invitation-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 58px;
+      color: #2e2622;
+      font-weight: 500;
       letter-spacing: 1px;
-      color: #ffe082;
-      margin-bottom: 8px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      line-height: 1.1;
+      margin-bottom: 12px;
     }
 
-    .cover-subtitle {
-      font-size: 15px;
-      color: #fce4ec;
+    .tap-hint {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      color: #554a43;
+      letter-spacing: 1.5px;
+      text-transform: none;
+      font-style: italic;
+    }
+
+    /* Golden Wax Seal Stamp */
+    .wax-seal {
+      position: absolute;
+      bottom: 22px;
+      width: 65px;
+      height: 65px;
+      background: radial-gradient(circle at 35% 35%, #ffd768, #c99324 70%, #855806 100%);
+      border-radius: 50%;
+      box-shadow: 0 6px 16px rgba(90, 55, 10, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #543702;
+      font-size: 26px;
+      border: 2px solid #e5b338;
+      z-index: 9;
+      animation: gentle-glow 2.5s infinite ease-in-out;
+    }
+
+    @keyframes gentle-glow {
+      0%, 100% { box-shadow: 0 6px 16px rgba(90, 55, 10, 0.4); transform: scale(1); }
+      50% { box-shadow: 0 10px 25px rgba(212, 160, 23, 0.65); transform: scale(1.05); }
+    }
+
+    /* The Unfolded Paper Letter */
+    .luxury-letter {
+      display: none;
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      background: #fffdfa;
+      border-radius: 16px;
+      padding: 45px 35px;
+      border: 1px solid #ebd9c2;
+      box-shadow: 0 25px 60px rgba(50, 15, 30, 0.25), inset 0 0 40px rgba(246, 233, 215, 0.5);
+      z-index: 20;
+      opacity: 0;
+      transform: translateY(40px) scale(0.92);
+      transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .luxury-letter.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .letter-inner-border {
+      border: 1.5px solid #d4af37;
+      padding: 30px 24px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .letter-inner-border::before,
+    .letter-inner-border::after {
+      content: "✦";
+      position: absolute;
+      color: #d4af37;
+      font-size: 16px;
+    }
+    .letter-inner-border::before { top: 6px; left: 8px; }
+    .letter-inner-border::after { bottom: 6px; right: 8px; }
+
+    .letter-header {
+      text-align: center;
       margin-bottom: 25px;
     }
 
-    .open-btn {
-      background: linear-gradient(45deg, #ffd700, #ffb300);
-      color: #4a0e4e;
-      border: none;
-      padding: 12px 30px;
-      font-size: 16px;
-      font-weight: 700;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .open-btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
+    .letter-header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 46px;
+      color: #8c1d40;
+      font-weight: 500;
+      line-height: 1.2;
     }
 
-    /* Inside Card (Hidden initially) */
-    .inner-card {
-      display: none;
-      background: linear-gradient(to bottom, #ffffff, #fffafc);
-      border: 3px solid #ffccd5;
-      border-radius: 20px;
-      padding: 35px 28px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-      position: relative;
-      transform: scale(0.8);
-      opacity: 0;
-      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    .letter-header .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: #846849;
+      font-style: italic;
+      letter-spacing: 1px;
+      margin-top: 5px;
     }
 
-    .inner-card.revealed {
-      display: block;
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    .card-heading {
-      text-align: center;
-      color: #c2185b;
-      font-size: 25px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      border-bottom: 2px dashed #ff80ab;
-      padding-bottom: 12px;
-    }
-
-    .card-body p {
-      color: #37474f;
-      font-size: 15px;
-      line-height: 1.85;
-      margin-bottom: 16px;
+    .letter-body p {
+      font-family: 'Playfair Display', serif;
+      color: #382e2b;
+      font-size: 15.5px;
+      line-height: 1.9;
+      margin-bottom: 18px;
       text-align: justify;
     }
 
-    .closing-sign {
+    .letter-signature {
       text-align: right;
-      margin-top: 25px;
-      font-size: 17px;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px dashed rgba(212, 175, 55, 0.4);
+    }
+
+    .letter-signature .closing-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-style: italic;
+      color: #634b35;
+    }
+
+    .letter-signature .husband-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
       font-weight: 700;
-      color: #ad1457;
-      line-height: 1.6;
+      color: #8c1d40;
+      margin-top: 5px;
+    }
+
+    .audio-player-tag {
+      text-align: center;
+      margin-top: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: #8c7255;
     }
   </style>
 </head>
 <body>
 
-  <div class="card-container">
-    <!-- Outer Invitation Flap -->
-    <div class="front-cover" id="cover" onclick="openInvitation()">
-      <div class="cover-ribbon">🎁✨</div>
-      <div class="cover-title">Exclusive Birthday Invitation</div>
-      <div class="cover-subtitle">Specially Sealed for My Queen Ruru 👑💍</div>
-      <button class="open-btn">Click To Unseal & Open 💌</button>
+  <!-- Romantic Violin Music Instrumental Track -->
+  <audio id="violinMusic" preload="auto">
+    <source src="https://assets.mixkit.co/music/preview/mixkit-serenade-of-the-heart-violin-479.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="scene">
+    <!-- Clickable Vintage Envelope Flap -->
+    <div class="envelope-box" id="envelopeBox" onclick="openEnvelopeLetter()">
+      <div class="envelope-crease-left"></div>
+      <div class="envelope-crease-right"></div>
+      
+      <div class="front-text-wrap">
+        <div class="invitation-title">Happy Birthday</div>
+        <div class="tap-hint">( Tap to open )</div>
+      </div>
+
+      <div class="wax-seal">
+        💍
+      </div>
     </div>
 
-    <!-- Inside Card Message -->
-    <div class="inner-card" id="innerCard">
-      <div class="card-heading">
-        👑 Happy Birthday To My Everything, Ruru! 🎂💖✨
-      </div>
-      <div class="card-body">
-        <p>
-          🎉🌸 Aaj ke is behtareen din par, main dil ki gehraiyon se dua karta hoon ke Allah Pak aapki zindagi ko dhero khushiyon, barkaton, achi sehat aur kamiyabiyon se bhar de. 🤲✨ Aapki zindagi me kabhi koi gham na aaye, har aane wala din aapke chehre par nayi muskurahat laye, aur aapka har khwab poora ho. 🌹💫
-        </p>
-        <p>
-          💍🏡 Meri pyari Ruru, aap meri aane wali zindagi ka sab se khoobsurat hissa ho. Main har pal us din ke khwab dekhta hoon jab hum hamesha ke liye ek doosre ke ho jayenge aur apni nayi shadi shuda zindagi ka aaghaz karenge. 👩‍❤️‍👨🕊️ Ek aisi zindagi jahan sirf pyar, sukoon, apnapan aur bepanah mohabbat ho. Main wada karta hoon ke hamara ghar hamesha hansi, izzat aur pyar se mehka rahega. 🕯️❤️
-        </p>
-        <p>
-          💐💖 Shukriya meri kismat banne ke liye aur meri zindagi me itna noor bharne ke liye. Main har mod par aapka hath pakad kar khada rahunga aur aapko duniya ki saari khushiyan doonga, insha'Allah. Happy Birthday once again my love! 🥳🎈✨
-        </p>
-      </div>
-      <div class="closing-sign">
-        With endless love & prayers, 🌹<br>
-        <strong>Your future husband</strong> 💍❤️👑
+    <!-- The Slide-out Royal Parchment Letter -->
+    <div class="luxury-letter" id="luxuryLetter">
+      <div class="letter-inner-border">
+        
+        <div class="letter-header">
+          <h1>My Dearest Ruru,</h1>
+          <div class="tagline">Happy Birthday to the Love of My Life 💖🎂</div>
+        </div>
+
+        <div class="letter-body">
+          <p>
+            🎉🌸 Aaj ke is sab se khushgawar din par, main sache dil se dua karta hoon ke Allah Pak aapki jholi hamesha be-hisaab khushiyon, barkaton, behtareen sehat aur kamiyabiyon se bhar de. 🤲✨ Aapki muskurahat hamesha yunhi roshan rahe aur aapka har khwab haqeeqat bane.
+          </p>
+          <p>
+            💍🏡 Meri pyari Ruru, aap meri aane wali zindagi ka sab se khoobsurat tohfa ho. Main roz us din ke khwab sajata hoon jab hum ek nayi shuruaat karenge, ek sath apna chhota sa pyara aashiyana basayenge. Ek aisi pur-sukoon zindagi jahan sirf bepanah mohabbat, izzat, apnapan aur muskurahatein hon. 👩‍❤️‍👨🕊️
+          </p>
+          <p>
+            💐❤️ Meri humsafar banne ke liye aur meri zindagi me itna noor bharne ke liye shukriya. Main wada karta hoon ke har sukh dukh me aapka sahara ban kar aapke sath khada rahunga. 
+          </p>
+        </div>
+
+        <div class="letter-signature">
+          <div class="closing-text">Always and forever, with all my love,</div>
+          <div class="husband-title">Your future husband 💍❤️👑</div>
+        </div>
+
+        <div class="audio-player-tag">
+          🎻 Playing: Romantic Violin Serenade...
+        </div>
+
       </div>
     </div>
   </div>
 
   <script>
-    function openInvitation() {
-      const cover = document.getElementById('cover');
-      const innerCard = document.getElementById('innerCard');
+    function openEnvelopeLetter() {
+      const envelope = document.getElementById('envelopeBox');
+      const letter = document.getElementById('luxuryLetter');
+      const music = document.getElementById('violinMusic');
 
-      // Card opening animation
-      cover.style.transform = 'rotateX(90deg)';
-      cover.style.opacity = '0';
+      // Music playback starts upon user tap
+      if (music) {
+        music.play().catch(err => console.log('Music play permitted after click:', err));
+      }
+
+      // Smooth Envelope Unseal & Reveal Animation
+      envelope.style.transform = 'scale(0.85) translateY(-25px)';
+      envelope.style.opacity = '0';
+      envelope.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
 
       setTimeout(() => {
-        cover.style.display = 'none';
-        innerCard.classList.add('revealed');
-        triggerEmojiShower();
-      }, 500);
+        envelope.style.display = 'none';
+        letter.classList.add('show');
+        launchCelebrationEmojis();
+      }, 550);
     }
 
-    function triggerEmojiShower() {
-      const emojis = ['🎂', '🎉', '💖', '✨', '🎈', '🌸', '💍', '💐', '👑', '🥳', '💌', '🌹', '❤️'];
+    function launchCelebrationEmojis() {
+      const partyIcons = ['🌸', '✨', '🎂', '💖', '💍', '🎉', '🌹', '🕊️', '💐', '💌', '👑'];
       
-      // Heavy emoji rain
       setInterval(() => {
-        const drop = document.createElement('div');
-        drop.classList.add('emoji-fall');
-        drop.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        drop.style.left = (Math.random() * 95) + 'vw';
-        drop.style.animationDuration = (Math.random() * 2 + 2.5) + 's';
-        drop.style.fontSize = (Math.random() * 16 + 22) + 'px';
-        document.body.appendChild(drop);
+        const span = document.createElement('div');
+        span.classList.add('emoji-fall');
+        span.innerText = partyIcons[Math.floor(Math.random() * partyIcons.length)];
+        span.style.left = (Math.random() * 95) + 'vw';
+        span.style.animationDuration = (Math.random() * 2 + 2.8) + 's';
+        span.style.fontSize = (Math.random() * 16 + 22) + 'px';
+        document.body.appendChild(span);
 
         setTimeout(() => {
-          drop.remove();
-        }, 4500);
-      }, 120);
+          span.remove();
+        }, 5000);
+      }, 130);
     }
   </script>
 </body>
