@@ -258,8 +258,8 @@
       -webkit-backdrop-filter: blur(14px);
       border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 24px;
-      padding: 50px 35px;
-      max-width: 850px;
+      padding: 55px 35px;
+      max-width: 880px;
       margin: 0 auto;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
       text-align: center;
@@ -267,14 +267,14 @@
 
     .message-title {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
       color: #ff80ab;
       margin-bottom: 30px;
     }
 
     .message-text {
       font-size: 1.05rem;
-      line-height: 2;
+      line-height: 2.1;
       color: #f8bbd0;
       margin-bottom: 22px;
       text-align: justify;
@@ -282,32 +282,30 @@
 
     .message-signature {
       font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: #ffd54f;
-      margin-top: 35px;
+      margin-top: 40px;
       text-align: right;
     }
 
     .message-hearts {
-      margin-top: 25px;
-      font-size: 2rem;
+      margin-top: 30px;
+      font-size: 2.2rem;
       display: flex;
       justify-content: center;
       gap: 15px;
     }
 
-    /* Audio Pill */
     .audio-pill {
       margin-top: 30px;
       display: inline-block;
       background: rgba(255, 255, 255, 0.15);
-      padding: 8px 20px;
+      padding: 8px 24px;
       border-radius: 30px;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #fce4ec;
     }
 
-    /* Bursting Floating Heart when Liked */
     .floating-burst-heart {
       position: fixed;
       pointer-events: none;
@@ -324,7 +322,7 @@
 </head>
 <body>
 
-  <!-- Floating Particles Background -->
+  <!-- Floating Background Particles -->
   <div id="particles"></div>
 
   <!-- Hero Section -->
@@ -349,16 +347,16 @@
     </div>
   </section>
 
-  <!-- Photo Gallery Section -->
+  <!-- Photo Gallery Section (Romantic Couple Photos) -->
   <section class="gallery-section" id="gallery">
     <div class="container">
       <h2 class="section-title">Our Beautiful Memories 📸❤️</h2>
 
       <div class="gallery-grid">
-        <!-- Photo 1 -->
+        <!-- Photo 1: Romantic Couple Silhouette / Hug -->
         <div class="photo-card">
           <div class="photo-container">
-            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80" alt="Special moment">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80" alt="Couple holding each other">
             <div class="photo-overlay">
               <span class="photo-caption">Every moment with you is pure magic ✨</span>
               <button class="like-btn" onclick="toggleLike(this, event)">❤️</button>
@@ -366,10 +364,10 @@
           </div>
         </div>
 
-        <!-- Photo 2 -->
+        <!-- Photo 2: Couple Laughing / Gentle Touch -->
         <div class="photo-card">
           <div class="photo-container">
-            <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80" alt="Beautiful smile">
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=800&q=80" alt="Couple laughing in love">
             <div class="photo-overlay">
               <span class="photo-caption">Your smile lights up my whole world 🌸</span>
               <button class="like-btn" onclick="toggleLike(this, event)">❤️</button>
@@ -377,10 +375,10 @@
           </div>
         </div>
 
-        <!-- Photo 3 -->
+        <!-- Photo 3: Couple Hands Interlocked with Ring -->
         <div class="photo-card">
           <div class="photo-container">
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Hands together">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Couple hands with engagement ring">
             <div class="photo-overlay">
               <span class="photo-caption">Walking hand in hand forever 💍</span>
               <button class="like-btn" onclick="toggleLike(this, event)">❤️</button>
@@ -391,26 +389,30 @@
     </div>
   </section>
 
-  <!-- Special Birthday Message Section -->
+  <!-- Special Extended Birthday Message Section -->
   <section class="message-section" id="message">
     <div class="container">
       <div class="message-card">
         <h2 class="message-title">A Special Message for You, Ruru 💌👑</h2>
         
         <p class="message-text">
-          On this special day, my dearest Ruru, I pray from the bottom of my heart that Allah Pak blesses you with boundless joy, radiant health, long peaceful life, and success in every single dream you pursue. 🤲✨ May every tear ever shed be turned into a reason to smile, and may peace and tranquility surround you always. 🌸
-        </p>
-        
-        <p class="message-text">
-          Looking at you, I see my entire future, my home, and my greatest blessing. 💍🏡 I constantly imagine the beautiful days ahead when we will start our married life together insha'Allah—a life filled with quiet warmth, endless laughter, mutual respect, and unconditional love. You are not only my fiancé; you are my peace, my best friend, and my whole heart. 👩‍❤️‍👨🕊️
+          On this extraordinary day, my dearest Ruru, I pause to thank Allah from the very core of my soul for the priceless gift of your existence in my world. 🤲✨ My earnest prayer is that every path you walk is surrounded by divine grace, peace, and abundance. May every quiet prayer whispered in your heart find its purest fulfillment, and may tears never touch your eyes except those of overwhelming joy and contentment. 🌸💫
         </p>
 
         <p class="message-text">
-          Thank you for choosing to walk this beautiful journey of life with me. I promise to cherish you, stand by you through every storm and sunshine, and give you every happiness this world has to offer. May this birthday mark the start of our happiest and most magical chapters together! 🌟💖
+          When I look at you, I do not merely see the present; I see my entire tomorrows. 💍🏡 You are the peace I always longed for and the gentle sanctuary where my heart rests. The thought of stepping into our married life together fills me with an excitement words can hardly capture. I dream daily of the home we will build together—a sacred refuge filled with warmth, endless laughter over silly little things, mutual respect, and an unbreakable love that grows deeper with every passing sunrise. 👩‍❤️‍👨🕊️
+        </p>
+
+        <p class="message-text">
+          Through every turn this journey takes—through triumphant days and difficult seasons—I promise to remain your constant strength, your trusted shield, and the one who always protects your precious smile. 🕯️❤️ Thank you for choosing me to walk alongside you, for believing in us, and for making my life endlessly meaningful.
+        </p>
+
+        <p class="message-text">
+          May this birthday mark the dawn of our happiest, most blessed, and magical chapter together. You will always be my only queen, my favorite person, and my forever home. Happy Birthday once again, my beloved Ruru! 🌟🎂🎉💐
         </p>
 
         <div class="message-signature">
-          With endless love & prayers,<br>
+          With all my love, prayers & devotion,<br>
           Your future husband 💍❤️👑
         </div>
 
@@ -429,7 +431,7 @@
   </section>
 
   <script>
-    // 1. Floating Background Particles
+    // 1. Floating Particles Background
     function initParticles() {
       const container = document.getElementById('particles');
       const symbols = ['💖', '🌸', '✨', '🦋', '🎈', '🤍', '🌹'];
@@ -456,7 +458,7 @@
       }
     }
 
-    // 3. Realistic Soft Romantic Chords (Browser Native - Zero CORS blockage)
+    // 3. Romantic Chords
     function playRomanticSound() {
       try {
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -469,7 +471,7 @@
         ];
 
         let time = ctx.currentTime + 0.1;
-        for (let round = 0; round < 8; round++) {
+        for (let round = 0; round < 10; round++) {
           progression.forEach(chord => {
             chord.forEach(freq => {
               const osc = ctx.createOscillator();
@@ -492,17 +494,16 @@
       } catch (e) {}
     }
 
-    // 4. Start Celebration Smooth Scroll + Audio
+    // 4. Smooth Scroll + Trigger Audio
     function startCelebration() {
       playRomanticSound();
       document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
     }
 
-    // 5. Like Button Reaction
+    // 5. Like Heart Particle Burst
     function toggleLike(btn, e) {
       btn.classList.toggle('liked');
 
-      // Heart particle burst
       const burst = document.createElement('div');
       burst.classList.add('floating-burst-heart');
       burst.innerText = '💖';
