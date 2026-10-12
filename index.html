@@ -3,55 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Ruru ❤️</title>
+  <title>A Special Surprise for Ruru ❤️</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
-      background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+      background: radial-gradient(circle, #ffe6eb 0%, #ffb6c1 100%);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 15px;
-      box-sizing: border-box;
+      overflow-x: hidden;
+      padding: 20px 10px;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px 25px;
-      border-radius: 20px;
-      max-width: 550px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+
+    /* Screen par girne wali emojis */
+    .emoji-fall {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      user-select: none;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fall linear forwards;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+
+    /* Envelope Screen */
+    #envelope-wrapper {
       text-align: center;
-      line-height: 1.7;
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
-    h1 { color: #d63384; margin-top: 0; font-size: 26px; }
-    p { color: #444; font-size: 15px; text-align: justify; }
+    #envelope-wrapper:hover {
+      transform: scale(1.05);
+    }
+    .envelope-box {
+      width: 280px;
+      height: 180px;
+      background: #ff4d6d;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      box-shadow: 0 15px 35px rgba(255, 77, 109, 0.4);
+      border: 2px dashed #ffe5ec;
+      padding: 15px;
+    }
+    .envelope-icon {
+      font-size: 50px;
+      margin-bottom: 10px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    .open-prompt {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* Letter / Invitation Card */
+    #letter-card {
+      display: none;
+      background: #ffffff;
+      max-width: 550px;
+      width: 100%;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      border: 1px solid #ffd1dc;
+      animation: popUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    @keyframes popUp {
+      from {
+        opacity: 0;
+        transform: scale(0.6) translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    h1 {
+      color: #ff3366;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .content p {
+      color: #444;
+      font-size: 15px;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: 16px;
+    }
     .signature {
-      margin-top: 25px;
-      font-weight: bold;
-      color: #d63384;
-      font-size: 17px;
       text-align: right;
+      margin-top: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #ff3366;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <div class="card">
+
+  <!-- Envelope Button Screen -->
+  <div id="envelope-wrapper" onclick="openSurprise()">
+    <div class="envelope-box">
+      <div class="envelope-icon">💌</div>
+      <div class="open-prompt">For Ruru ✨<br><small style="font-size: 12px; font-weight: normal;">Tap to open your letter</small></div>
+    </div>
+  </div>
+
+  <!-- Hidden Wish Card -->
+  <div id="letter-card">
     <h1>🎉 Happy Birthday, My Dearest Ruru! ❤️🎂</h1>
-    <p>
-      On your special day, I pray from the deepest corner of my heart that Allah blesses you with endless happiness, perfect health, peace of mind, and immense success in everything you do. 🤲✨ May every tear be replaced with a beautiful smile, and may every dream you hold close to your heart come true this year. You truly deserve all the beauty and goodness this world has to offer. 🌸💫
-    </p>
-    <p>
-      Looking at you, I see my entire future. I can hardly express how excited and blessed I feel knowing that soon, insha'Allah, we will be stepping into our married life together. 💍🏡 I constantly imagine our days ahead—a home filled with warmth, endless laughter, peaceful mornings, and unconditional love. I pray that our upcoming marriage becomes a source of tranquility, strength, and joy for both of us, and that we build a bond so strong that no storm can ever shake it. 🕊️❤️
-    </p>
-    <p>
-      Thank you for choosing to walk this journey with me, for being my peace, and for making my life so incredibly meaningful. I promise to always stand by your side, protect your smile, and cherish you with all my heart through every phase of life. 🌟💐
-    </p>
+    <div class="content">
+      <p>
+        On your special day, I pray from the deepest corner of my heart that Allah blesses you with endless happiness, perfect health, peace of mind, and immense success in everything you do. 🤲✨ May every tear be replaced with a beautiful smile, and may every dream you hold close to your heart come true this year. You truly deserve all the beauty and goodness this world has to offer. 🌸💫
+      </p>
+      <p>
+        Looking at you, I see my entire future. I can hardly express how excited and blessed I feel knowing that soon, insha'Allah, we will be stepping into our married life together. 💍🏡 I constantly imagine our days ahead—a home filled with warmth, endless laughter, peaceful mornings, and unconditional love. I pray that our upcoming marriage becomes a source of tranquility, strength, and joy for both of us, and that we build a bond so strong that no storm can ever shake it. 🕊️❤️
+      </p>
+      <p>
+        Thank you for choosing to walk this journey with me, for being my peace, and for making my life so incredibly meaningful. I promise to always stand by your side, protect your smile, and cherish you with all my heart through every phase of life. May this birthday mark the start of our most magical chapters yet. 🌟💐
+      </p>
+    </div>
     <div class="signature">
       Always and forever,<br>
       Your future husband 💍❤️
     </div>
   </div>
+
+  <script>
+    function openSurprise() {
+      // Hide envelope, show card
+      document.getElementById('envelope-wrapper').style.display = 'none';
+      const card = document.getElementById('letter-card');
+      card.style.display = 'block';
+
+      // Start emoji rain
+      const emojis = ['🎂', '🎉', '💖', '✨', '🎈', '🌸', '💍', '💐'];
+      setInterval(() => {
+        const item = document.createElement('div');
+        item.classList.add('emoji-fall');
+        item.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        item.style.left = Math.random() * 100 + 'vw';
+        item.style.animationDuration = (Math.random() * 2 + 3) + 's';
+        item.style.fontSize = (Math.random() * 14 + 18) + 'px';
+        document.body.appendChild(item);
+
+        setTimeout(() => {
+          item.remove();
+        }, 5000);
+      }, 250);
+    }
+  </script>
 </body>
 </html>
